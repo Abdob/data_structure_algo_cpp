@@ -1,0 +1,31 @@
+Given an array of positive integers, find the smallest subarray’s length whose sum of elements is greater than a given number k.
+
+For example,
+
+Input:  {1, 2, 3, 4, 5, 6, 7, 8}, k = 20
+Output: The smallest subarray length is 3
+Explanation: The smallest subarray with sum > 20 is {6, 7, 8}
+ 
+ 
+Input:  {1, 2, 3, 4, 5, 6, 7, 8}, k = 7
+Output: The smallest subarray length is 1
+Explanation: The smallest subarray with sum > 7 is {8}
+ 
+ 
+Input:  {1, 2, 3, 4, 5, 6, 7, 8}, k = 21
+Output: The smallest subarray length is 4
+Explanation: The smallest subarray with sum > 21 is {4, 5, 6, 7}
+ 
+ 
+Input:  {1, 2, 3, 4, 5, 6, 7, 8}, k = 40
+Output: No subarray exists
+Practice this problem
+
+Please note that the problem specifically targets subarrays that are contiguous (i.e., occupy consecutive positions) and
+inherently maintains the order of elements. Also note that we don’t have to print the subarray but return its length.
+
+ 
+We can solve this problem by using a sliding window. The idea is to maintain a window that ends at the current element,
+and the sum of its elements is less than or equal to the given sum. If the current window’s sum becomes more than the given
+sum at any point of time, then the window is unstable and continue removing elements from the window’ left till it becomes
+stable again. Also update the result if the unstable window’s length is less than the minimum found so far. 
